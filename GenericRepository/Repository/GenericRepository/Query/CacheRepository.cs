@@ -30,9 +30,7 @@ public class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseModel
             return await _repository.FindAsync(id);
         });
     }
-
- 
-
+    
     public async Task<List<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
@@ -138,9 +136,7 @@ public class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseModel
     #endregion
 
     #region Sync
-
-
-
+    
     public T Find(long id)
     {
         string key = GenerateCacheKey(query: id);
@@ -258,7 +254,6 @@ public class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseModel
     public long GetCount(Expression<Func<T, bool>>? query = default)
         => _repository.GetCount(query);
 
-   
     public async Task<bool> AnyAsync(Expression<Func<T, bool>> query)
         => await _repository.AnyAsync(query);
 

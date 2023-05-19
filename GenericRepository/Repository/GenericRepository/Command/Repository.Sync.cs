@@ -13,11 +13,11 @@ public partial class Repository<T> where T : BaseModel
         IDbContextTransaction dbContextTransaction = _context.Database.BeginTransaction();
         return dbContextTransaction;
     }
-
     public void RollbackTransaction()
         => _context.Database.RollbackTransaction();
     public void CommitTransaction()
         => _context.Database.CommitTransaction();
+
     public void Add(T model)
         => _model.Add(model);
     public void AddRange(IEnumerable<T> models)
@@ -45,5 +45,6 @@ public partial class Repository<T> where T : BaseModel
         => _model.UpdateRange(models);
     public void ClearChangeTracker()
         => _context.ChangeTracker.Clear();
-    
+
+  
 }

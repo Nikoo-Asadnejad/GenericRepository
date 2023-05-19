@@ -12,6 +12,7 @@ public partial interface IRepository<T> where T : BaseModel
     Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default);
     Task RollbackTransactionAsync();
     Task CommitTransactionAsync();
+    
     Task AddAsync(T model);
 
     Task AddRangeAsync(IEnumerable<T> models);

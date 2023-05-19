@@ -1,3 +1,4 @@
+using GenericRepository.Data;
 using GenericRepository.Interfaces.Repository;
 using GenericRepository.Interfaces.UnitOfWork;
 using GenericRepository.Models;
@@ -14,6 +15,8 @@ namespace GenericRepositoryDll.Configuration
     {
       services.AddMemoryCache();
       services.AddTransient<IUnitOfwork, UnitOfWork>();
+      services.AddScoped<DbContext, CommandContext>();
+      services.AddScoped<DbContext, QueryContext>();
       services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
       services.AddTransient(typeof(IQueryGenericRepository<>), typeof(QueryGenericRepository<>));
       services.Decorate(typeof(IQueryGenericRepository<>), typeof(CacheRepository<>));

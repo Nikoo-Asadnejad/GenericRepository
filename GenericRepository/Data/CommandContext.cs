@@ -1,11 +1,12 @@
+using GenericRepository.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace GenericRepository.Models;
+namespace GenericRepository.Data;
 
-public class BaseDbContext : DbContext
+public class CommandContext : DbContext
 {
-    public BaseDbContext()
+    public CommandContext(DbContextOptions<CommandContext> options) : base(options)
     {
         ChangeTracker.StateChanged += TrackChanges;
         ChangeTracker.Tracked += TrackChanges;

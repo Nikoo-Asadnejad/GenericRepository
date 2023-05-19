@@ -2,6 +2,7 @@ using System.Data;
 using GenericReositoryDll.Enumrations;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using GenericRepository.Data;
 using GenericRepository.Interfaces.Repository;
 using GenericRepository.Models;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -11,9 +12,9 @@ namespace GenericRepository.Repository;
 public partial class Repository<T> : IRepository<T> where T : BaseModel
 {
 
-  private readonly DbContext _context;
+  private readonly CommandContext _context;
   private readonly DbSet<T> _model;
-  public Repository(DbContext context)
+  public Repository(CommandContext context)
   {
     this._context = context;
     _model = _context.Set<T>();

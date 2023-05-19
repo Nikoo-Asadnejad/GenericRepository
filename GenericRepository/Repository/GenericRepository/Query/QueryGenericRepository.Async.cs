@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using GenericReositoryDll.Enumrations;
+using GenericRepository.Data;
 using GenericRepository.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,10 +8,10 @@ namespace GenericRepository.Repository;
 
 public partial class QueryGenericRepository<T> : IQueryGenericRepository<T>
 {
-    private readonly DbContext _context;
+    private readonly QueryContext _context;
     private readonly DbSet<T> _model;
 
-    public QueryGenericRepository(DbContext context)
+    public QueryGenericRepository(QueryContext context)
     {
         this._context = context;
         _model = _context.Set<T>();
