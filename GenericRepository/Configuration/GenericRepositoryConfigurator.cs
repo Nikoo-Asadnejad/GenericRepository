@@ -15,7 +15,8 @@ namespace GenericRepositoryDll.Configuration
       services.AddMemoryCache();
       services.AddTransient<IUnitOfwork, UnitOfWork>();
       services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
-      services.Decorate(typeof(IRepository<>), typeof(CacheRepository<>));
+      services.AddTransient(typeof(IQueryGenericRepository<>), typeof(QueryGenericRepository<>));
+      services.Decorate(typeof(IQueryGenericRepository<>), typeof(CacheRepository<>));
     }
   }
 }

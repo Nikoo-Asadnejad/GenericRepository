@@ -6,13 +6,13 @@ using GenericRepository.Models;
 
 namespace GenericRepository.Repository;
 
-public class CacheRepository<T> : IRepository<T> where T : BaseModel
+public class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseModel
 {
     private readonly IMemoryCache _memoryCache;
-    private readonly IRepository<T> _repository;
+    private readonly IQueryGenericRepository<T> _repository;
     private readonly short _expireTime = 1;
 
-    public CacheRepository(IMemoryCache memoryCache, IRepository<T> repository)
+    public CacheRepository(IMemoryCache memoryCache, IQueryGenericRepository<T> repository)
     {
         _memoryCache = memoryCache;
         _repository = repository;
@@ -31,8 +31,7 @@ public class CacheRepository<T> : IRepository<T> where T : BaseModel
         });
     }
 
-    public Task<IQueryable<T>> GetQueriableAsync()
-        => _repository.GetQueriableAsync();
+ 
 
     public async Task<List<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
@@ -68,7 +67,10 @@ public class CacheRepository<T> : IRepository<T> where T : BaseModel
         });
     }
 
-  
+    public async Task<long> GetCountAsync(Expression<Func<T, bool>>? query = default)
+        => await _repository.GetCountAsync(query);
+
+
     public async Task<List<TResult>> GetListAsync<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,
         Func<T, object>? orderBy = null, 
@@ -137,8 +139,7 @@ public class CacheRepository<T> : IRepository<T> where T : BaseModel
 
     #region Sync
 
-    public IQueryable<T> GetQueriable()
-        => _repository.GetQueriable();
+
 
     public T Find(long id)
     {
@@ -247,58 +248,17 @@ public class CacheRepository<T> : IRepository<T> where T : BaseModel
     #endregion
 
     #region withOutCache
-    
+    public Task<IQueryable<T>> GetQueriableAsync()
+        => _repository.GetQueriableAsync();
+    public IQueryable<T> GetQueriable()
+        => _repository.GetQueriable();
     public bool Any(Expression<Func<T, bool>> query)
         =>  _repository.Any(query);
 
     public long GetCount(Expression<Func<T, bool>>? query = default)
         => _repository.GetCount(query);
 
-    public void Add(T model)
-        => _repository.Add(model);
-
-    public void AddRange(IEnumerable<T> models)
-        => _repository.AddRange(models);
-
-    public void Update(T model)
-        => _repository.Update(model);
-
-    public void UpdateRange(IEnumerable<T> models)
-        => _repository.UpdateRange(models);
-
-    public void Delete(long id)
-        => _repository.Delete(id);
-
-    public void Delete(T model)
-        => _repository.Delete(model);
-
-    public void DeleteRange(IEnumerable<T> models)
-        => _repository.DeleteRange(models);
-
-    public async Task<long> GetCountAsync(Expression<Func<T, bool>>? query = default)
-        => await _repository.GetCountAsync(query);
-
-    public async Task AddAsync(T model)
-        => await _repository.AddAsync(model);
-
-    public async Task AddRangeAsync(IEnumerable<T> models)
-        => await _repository.AddRangeAsync(models);
-
-    public async Task UpdateAsync(T model)
-        => await _repository.UpdateAsync(model);
-
-    public async Task UpdateRangeAsync(IEnumerable<T> models)
-        => await _repository.UpdateRangeAsync(models);
-
-    public async Task DeleteAsync(long id)
-        => await _repository.DeleteAsync(id);
-
-    public async Task DeleteAsync(T model)
-        => await _repository.DeleteAsync(model);
-
-    public async Task DeleteRangeAsync(IEnumerable<T> models)
-        => await _repository.DeleteRangeAsync(models);
-
+   
     public async Task<bool> AnyAsync(Expression<Func<T, bool>> query)
         => await _repository.AnyAsync(query);
 
