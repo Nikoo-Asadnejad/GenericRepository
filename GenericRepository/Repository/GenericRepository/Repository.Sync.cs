@@ -2,11 +2,17 @@ using GenericReositoryDll.Enumrations;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using GenericRepository.Models;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Repository;
 
 public partial class Repository<T>  where T : BaseModel
 {
+  public IDbContextTransaction BeginTransaction()
+  {
+    IDbContextTransaction dbContextTransaction =  _context.Database.BeginTransaction();
+        return dbContextTransaction;
+  }
 
   public void Add(T model)
   => _model.Add(model);

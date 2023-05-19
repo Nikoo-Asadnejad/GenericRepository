@@ -1,8 +1,10 @@
+using System.Data;
 using GenericReositoryDll.Enumrations;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using GenericRepository.Interfaces.Repository;
 using GenericRepository.Models;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Repository;
 
@@ -16,6 +18,13 @@ public partial class Repository<T> : IRepository<T> where T : BaseModel
     this._context = context;
     _model = _context.Set<T>();
   }
+
+  public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
+  {
+    IDbContextTransaction dbContextTransaction = await _context.Database.BeginTransactionAsync(cancellationToken);
+    return dbContextTransaction;
+  }
+
   public async Task AddAsync(T model)
   => await _model.AddAsync(model);
   
