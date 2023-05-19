@@ -7,6 +7,8 @@ namespace GenericRepository.Interfaces.Repository;
 public partial interface IRepository<T>
 {
     IDbContextTransaction BeginTransaction();
+    void RollbackTransaction();
+    void CommitTransaction();
     void Add(T model);
     void AddRange(IEnumerable<T> models);
     void Update(T model);

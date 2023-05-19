@@ -24,6 +24,10 @@ public partial class Repository<T> : IRepository<T> where T : BaseModel
     IDbContextTransaction dbContextTransaction = await _context.Database.BeginTransactionAsync(cancellationToken);
     return dbContextTransaction;
   }
+  public async Task RollbackTransactionAsync()
+    =>await _context.Database.RollbackTransactionAsync();
+  public async Task CommitTransactionAsync()
+    => await _context.Database.CommitTransactionAsync();
 
   public async Task AddAsync(T model)
   => await _model.AddAsync(model);
