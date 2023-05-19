@@ -1,0 +1,29 @@
+D:/web development/projects/GenericRepositoryDll/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.csproj.AssemblyReference.cache
+D:/web development/projects/GenericRepositoryDll/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.GeneratedMSBuildEditorConfig.editorconfig
+D:/web development/projects/GenericRepositoryDll/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.AssemblyInfoInputs.cache
+D:/web development/projects/GenericRepositoryDll/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.AssemblyInfo.cs
+D:/web development/projects/GenericRepositoryDll/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.csproj.CoreCompileInputs.cache
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.csproj.AssemblyReference.cache
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.AssemblyInfoInputs.cache
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.AssemblyInfo.cs
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.csproj.CoreCompileInputs.cache
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/bin/Debug/net6.0/GenericRepository.deps.json
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/bin/Debug/net6.0/GenericRepository.dll
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/bin/Debug/net6.0/GenericRepository.pdb
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.dll
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/refint/GenericRepository.dll
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.pdb
+/Users/macbook/Projects/CleanArchitectureTemplate/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/ref/GenericRepository.dll
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/bin/Debug/net6.0/GenericRepository.deps.json
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/bin/Debug/net6.0/GenericRepository.dll
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/bin/Debug/net6.0/GenericRepository.pdb
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.csproj.AssemblyReference.cache
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.AssemblyInfoInputs.cache
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.AssemblyInfo.cs
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.csproj.CoreCompileInputs.cache
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.dll
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/refint/GenericRepository.dll
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/GenericRepository.pdb
+/Users/macbook/Projects/GenericRepository/GenericRepository/GenericRepository/obj/Debug/net6.0/ref/GenericRepository.dll
