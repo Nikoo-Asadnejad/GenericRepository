@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Repository;
 
-public partial class Repository<T> : IRepository<T> where T : BaseModel
+public sealed partial class Repository<T> : IRepository<T> where T : BaseModel
 {
 
   private readonly CommandContext _context;

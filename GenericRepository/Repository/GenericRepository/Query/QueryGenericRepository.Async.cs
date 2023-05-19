@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GenericRepository.Repository;
 
-public partial class QueryGenericRepository<T> : IQueryGenericRepository<T>
+public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<T>
 {
     private readonly QueryContext _context;
     private readonly DbSet<T> _model;
