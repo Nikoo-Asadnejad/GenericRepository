@@ -14,6 +14,8 @@ public partial interface IRepository<T>
     void Delete(long id);
     void Delete(T model);
     void DeleteRange(IEnumerable<T> models);
-    
+
+    void ClearChangeTracker();
+
 
 }

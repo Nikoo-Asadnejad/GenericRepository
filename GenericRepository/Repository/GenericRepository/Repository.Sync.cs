@@ -49,7 +49,9 @@ public partial class Repository<T>  where T : BaseModel
   
   public void UpdateRange(IEnumerable<T> models)
   => _model.UpdateRange(models);
-  
 
+  public void ClearChangeTracker()
+  => _context.ChangeTracker.Clear();
+  
 }
 
