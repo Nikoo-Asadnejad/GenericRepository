@@ -222,6 +222,9 @@ public partial class Repository<T>  where T : BaseModel
     return result;
   }
 
+  public IQueryable<T> GetQueriable()
+    => _model.AsQueryable();
+
   public T Find(long id)
   => _model.Find(id);
 

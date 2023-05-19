@@ -1,4 +1,5 @@
 
+using System.Globalization;
 using GenericReositoryDll.Enumrations;
 using System.Linq.Expressions;
 using GenericRepository.Models;
@@ -10,6 +11,7 @@ public partial interface IRepository<T> where T : BaseModel
 {
 
   Task<T> FindAsync(long id);
+  Task<IQueryable<T>> GetQueriableAsync();
 
     Task<TResult> GetSingleAsync<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,

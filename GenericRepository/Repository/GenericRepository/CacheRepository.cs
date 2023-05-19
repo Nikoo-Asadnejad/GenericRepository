@@ -31,6 +31,9 @@ public class CacheRepository<T> : IRepository<T> where T : BaseModel
         });
     }
 
+    public Task<IQueryable<T>> GetQueriableAsync()
+        => _repository.GetQueriableAsync();
+
     public async Task<List<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
@@ -133,7 +136,10 @@ public class CacheRepository<T> : IRepository<T> where T : BaseModel
     #endregion
 
     #region Sync
-    
+
+    public IQueryable<T> GetQueriable()
+        => _repository.GetQueriable();
+
     public T Find(long id)
     {
         string key = GenerateCacheKey(query: id);

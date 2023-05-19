@@ -192,7 +192,10 @@ public partial class Repository<T> : IRepository<T> where T : BaseModel
   bool? distinct = null,
   bool asTracking = false)
   =>await GetListAsync(null, orderBy, orderType, includes, skip,take, distinct,asTracking);
-  
+
+  public async Task<IQueryable<T>> GetQueriableAsync()
+    => _model.AsQueryable();
+
   public async Task<TResult> GetSingleAsync<TResult>(Expression<Func<T, bool>>? query,
     Func<T, TResult> selector,
     List<string> includes = null,
