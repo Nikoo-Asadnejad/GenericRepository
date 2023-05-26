@@ -27,4 +27,8 @@
       <ProjectReference Include="..\GenericRepository\GenericRepository.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Repository\GenericRepository\Command" />
+    </ItemGroup>
+
 </Project>
