@@ -13,14 +13,13 @@ public class CommandContext : DbContext
     }
     private static void TrackChanges(object sender, EntityEntryEventArgs e)
     {
-        long now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-        if (e.Entry.Entity is BaseModel model)
+        if (e.Entry.Entity is BaseEntity model)
         {
             var result = e.Entry.State switch
             {
-                    EntityState.Deleted => model.DeleteDate = now,
-                    EntityState.Modified => model.UpdateDate = now,
-                    EntityState.Added => model.CreateDate = now,
+                    EntityState.Deleted => model.Delete(),
+                    EntityState.Modified => model.Update(),
+                    EntityState.Added => model.Create(),
                     _ => default,
             };
         }

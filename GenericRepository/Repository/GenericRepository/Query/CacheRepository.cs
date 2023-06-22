@@ -6,7 +6,7 @@ using GenericRepository.Models;
 
 namespace GenericRepository.Repository;
 
-public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseModel
+public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseEntity
 {
     private readonly IMemoryCache _memoryCache;
     private readonly IQueryGenericRepository<T> _repository;

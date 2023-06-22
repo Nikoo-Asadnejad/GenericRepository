@@ -10,11 +10,11 @@ namespace GenericRepository.Tests.Repository.GenericRepository.Query;
 public partial class QueryGenericRepositoryTests
 {
     private readonly Mock<QueryContext> _queryContextMoq;
-    private readonly IQueryGenericRepository<SampleModel> _queryGenericRepository;
+    private readonly IQueryGenericRepository<SampleEntity> _queryGenericRepository;
     public QueryGenericRepositoryTests()
     {
         _queryContextMoq = new ();
-        _queryGenericRepository = new QueryGenericRepository<SampleModel>(_queryContextMoq.Object);
+        _queryGenericRepository = new QueryGenericRepository<SampleEntity>(_queryContextMoq.Object);
     }
 
     [Fact]
