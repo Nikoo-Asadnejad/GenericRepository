@@ -17,5 +17,11 @@ public partial class QueryGenericRepositoryTests
         _queryGenericRepository = new QueryGenericRepository<SampleModel>(_queryContextMoq.Object);
     }
 
+    [Fact]
+    public void GetSingleAsync_WhenCalled_ReturnsModel()
+    {
+        
+    }
+
     
 }

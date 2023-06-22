@@ -193,7 +193,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     }
 
     public async Task<T> GetSingleAsync(Expression<Func<T, bool>>? query,
-        List<string> includes = null,
+        List<string>? includes = null,
         bool asTracking = false)
     {
         T result;
@@ -202,7 +202,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (!asTracking)
             model.AsNoTrackingWithIdentityResolution();
 
-        if (includes != null && includes.Count() > 0)
+        if (includes != null && includes.Any())
             includes.ForEach(includeProperty => model.Include(includeProperty));
 
         model = model.Where(query);
