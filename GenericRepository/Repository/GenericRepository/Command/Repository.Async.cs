@@ -54,8 +54,11 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
 
   public async Task DeleteRangeAsync(IEnumerable<T> models)
   => _model.RemoveRange(models);
-  
- 
+
+  public async Task ExecuteDeleteAsync(Expression<Func<T, bool>> condition)
+  {
+  }
+
   public async Task UpdateAsync(T model)
   {
     _context.Attach(model);

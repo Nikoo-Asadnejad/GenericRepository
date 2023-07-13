@@ -19,5 +19,6 @@ public partial interface IRepository<T> where T : BaseEntity
     Task DeleteAsync(long id);
     Task DeleteAsync(T model);
     Task DeleteRangeAsync(IEnumerable<T> models);
-    
+    Task ExecuteDeleteAsync(Expression<Func<T, bool>> condition);
+
 }
