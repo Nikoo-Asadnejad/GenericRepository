@@ -6,7 +6,7 @@ using GenericRepository.Models;
 
 namespace GenericRepository.Repository;
 
-public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseModel
+public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseEntity
 {
     private readonly IMemoryCache _memoryCache;
     private readonly IQueryGenericRepository<T> _repository;
@@ -244,10 +244,10 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
     #endregion
 
     #region withOutCache
-    public Task<IQueryable<T>> GetQueriableAsync()
-        => _repository.GetQueriableAsync();
-    public IQueryable<T> GetQueriable()
-        => _repository.GetQueriable();
+    public Task<IQueryable<T>> GetQueryableAsync()
+        => _repository.GetQueryableAsync();
+    public IQueryable<T> GetQueryable()
+        => _repository.GetQueryable();
     public bool Any(Expression<Func<T, bool>> query)
         =>  _repository.Any(query);
 
@@ -261,7 +261,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
     
     #region Helper
 
-    private string GenerateCacheKey(object? query = null, object selector = null, object? orderBy = null,
+    private string GenerateCacheKey(object? query = null, object? selector = null, object? orderBy = null,
         OrderType? orderType = null, List<string>? includes = null, int? skip = null, int? take = null,
         bool? distinct = null)
     {

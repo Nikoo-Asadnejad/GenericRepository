@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GenericRepository.Repository;
 
-public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<T> where  T : BaseModel
+public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<T> where  T : BaseEntity
 {
     
 
@@ -195,7 +195,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         return result;
     }
 
-    public IQueryable<T> GetQueriable()
+    public IQueryable<T> GetQueryable()
         => _model.AsQueryable();
 
     public T Find(long id)
