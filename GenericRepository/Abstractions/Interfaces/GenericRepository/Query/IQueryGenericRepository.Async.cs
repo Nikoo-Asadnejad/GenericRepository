@@ -6,7 +6,7 @@ namespace GenericRepository.Interfaces.Repository;
 public partial interface IQueryGenericRepository<T>
 {
     Task<T> FindAsync(long id);
-    Task<IQueryable<T>> GetQueriableAsync();
+    Task<IQueryable<T>> GetQueryableAsync();
     Task<TResult> GetSingleAsync<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,
         List<string>? includes = default,

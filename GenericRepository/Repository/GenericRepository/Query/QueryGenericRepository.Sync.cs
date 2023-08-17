@@ -195,7 +195,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         return result;
     }
 
-    public IQueryable<T> GetQueriable()
+    public IQueryable<T> GetQueryable()
         => _model.AsQueryable();
 
     public T Find(long id)

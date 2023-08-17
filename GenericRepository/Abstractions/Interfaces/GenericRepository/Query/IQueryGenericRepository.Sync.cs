@@ -5,7 +5,7 @@ namespace GenericRepository.Interfaces.Repository;
 
 public partial interface IQueryGenericRepository<T>
 {
-    IQueryable<T> GetQueriable();
+    IQueryable<T> GetQueryable();
     T Find(long id);
 
     TResult GetSingle<TResult>(Expression<Func<T, bool>>? query,
