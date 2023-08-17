@@ -1,6 +1,4 @@
-using System.Linq.Expressions;
-
-namespace GenericRepository.Models;
+namespace GenericRepository.Entities;
 
 public abstract class BaseEntity 
 {

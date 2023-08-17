@@ -1,10 +1,8 @@
-using GenericReositoryDll.Enumrations;
+using GenericRepository.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-using GenericRepository.Models;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace GenericRepository.Repository;
+namespace GenericRepository.Repository.GenericRepository.Command;
 
 public sealed partial class Repository<T> where T : BaseEntity
 {

@@ -1,4 +1,4 @@
-using GenericRepository.Models;
+using GenericRepository.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 

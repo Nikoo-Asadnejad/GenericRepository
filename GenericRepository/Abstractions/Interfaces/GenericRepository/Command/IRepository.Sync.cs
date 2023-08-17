@@ -1,8 +1,6 @@
-using GenericReositoryDll.Enumrations;
-using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace GenericRepository.Interfaces.Repository;
+namespace GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
 
 public partial interface IRepository<T>
 {

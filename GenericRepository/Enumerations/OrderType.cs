@@ -1,4 +1,4 @@
-namespace GenericReositoryDll.Enumrations
+namespace GenericRepository.Enumerations
 {
   public enum OrderType
   {

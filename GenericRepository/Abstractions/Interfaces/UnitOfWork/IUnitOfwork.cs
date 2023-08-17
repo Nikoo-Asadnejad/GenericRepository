@@ -1,4 +1,4 @@
-namespace GenericRepository.Interfaces.UnitOfWork;
+namespace GenericRepository.Abstractions.Interfaces.UnitOfWork;
 
 public interface IUnitOfwork
 { 

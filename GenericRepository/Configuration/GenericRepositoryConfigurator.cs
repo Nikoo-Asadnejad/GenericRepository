@@ -1,13 +1,14 @@
+using GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
+using GenericRepository.Abstractions.Interfaces.GenericRepository.Query;
+using GenericRepository.Abstractions.Interfaces.UnitOfWork;
 using GenericRepository.Data;
-using GenericRepository.Interfaces.Repository;
-using GenericRepository.Interfaces.UnitOfWork;
-using GenericRepository.Models;
-using GenericRepository.Repository;
-using GenericRepository.UnitOfWork;
+using GenericRepository.Repository.GenericRepository.Command;
+using GenericRepository.Repository.GenericRepository.Query;
+using GenericRepository.Repository.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GenericRepositoryDll.Configuration
+namespace GenericRepository.Configuration
 {
   public static class GenericRepositoryConfigurator
   {

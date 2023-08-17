@@ -1,11 +1,11 @@
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
 using GenericRepository.Data;
-using GenericRepository.Interfaces.Repository;
-using GenericRepository.Models;
+using GenericRepository.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace GenericRepository.Repository;
+namespace GenericRepository.Repository.GenericRepository.Command;
 
 public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
 {
@@ -57,6 +57,7 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
   }
   public async Task UpdateRangeAsync(IEnumerable<T> models)
   => _model.UpdateRange(models);
+  
    
   
 

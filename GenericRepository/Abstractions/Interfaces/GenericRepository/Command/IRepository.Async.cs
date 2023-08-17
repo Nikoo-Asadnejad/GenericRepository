@@ -1,11 +1,8 @@
-using System.Data;
-using System.Globalization;
-using GenericReositoryDll.Enumrations;
 using System.Linq.Expressions;
-using GenericRepository.Models;
+using GenericRepository.Entities;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace GenericRepository.Interfaces.Repository;
+namespace GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
 
 public partial interface IRepository<T> where T : BaseEntity
 {
