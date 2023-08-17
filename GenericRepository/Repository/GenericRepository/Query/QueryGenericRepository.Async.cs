@@ -31,9 +31,9 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     /// <returns></returns>
     public async Task<List<TResult>> GetListAsync<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,
-        Func<T, object> orderBy = null,
+        Func<T, object>? orderBy = null,
         OrderType? orderType = null,
-        List<string> includes = null,
+        List<string>? includes = null,
         int? skip = null,
         int? take = null,
         bool? distinct = null,
@@ -74,10 +74,10 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         return result;
     }
 
-    public async Task<List<T>> GetListAsync(Expression<Func<T, bool>> query = null,
-        Func<T, object> orderBy = null,
+    public async Task<List<T>> GetListAsync(Expression<Func<T, bool>>? query = null,
+        Func<T, object>? orderBy = null,
         OrderType? orderType = null,
-        List<string> includes = null,
+        List<string>? includes = null,
         int? skip = 0,
         int? take = null,
         bool? distinct = null,
@@ -116,9 +116,9 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     }
 
     public async Task<List<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
-        Func<T, object> orderBy = null,
+        Func<T, object>? orderBy = null,
         OrderType? orderType = null,
-        List<string> includes = null,
+        List<string>? includes = null,
         int? skip = null,
         int? take = null,
         bool? distinct = null,
@@ -130,7 +130,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (!asTracking)
             models.AsNoTrackingWithIdentityResolution();
 
-        if (includes != null && includes.Count() > 0)
+        if (includes != null && includes.Any())
             includes.ForEach(includeProperty => models.Include(includeProperty));
 
         if (skip != null)
@@ -157,9 +157,9 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     }
 
     public async Task<List<T>> GetAllAsync(
-        Func<T, object> orderBy = null,
+        Func<T, object>? orderBy = null,
         OrderType? orderType = null,
-        List<string> includes = null,
+        List<string>? includes = null,
         int? skip = 0,
         int? take = null,
         bool? distinct = null,
@@ -171,7 +171,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
 
     public async Task<TResult> GetSingleAsync<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,
-        List<string> includes = null,
+        List<string>? includes = null,
         bool asTracking = false)
     {
         TResult result;

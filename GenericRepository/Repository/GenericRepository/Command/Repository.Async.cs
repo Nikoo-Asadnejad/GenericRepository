@@ -1,5 +1,3 @@
-using System.Data;
-using GenericReositoryDll.Enumrations;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using GenericRepository.Data;
@@ -29,42 +27,34 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
     =>await _context.Database.RollbackTransactionAsync();
   public async Task CommitTransactionAsync()
     => await _context.Database.CommitTransactionAsync();
-
   public async Task AddAsync(T model)
   => await _model.AddAsync(model);
-  
   public async Task AddRangeAsync(IEnumerable<T> models)
   => await _model.AddRangeAsync(models);
-  
-
-
   public async Task DeleteAsync(long id)
   {
-    T model = _context.FindAsync<T>(id).Result;
-    if (model != null) DeleteAsync(model);
+    T? model = await _context.FindAsync<T>(id);
+    if (model != null) 
+      await DeleteAsync(model);
   }
-
   public async  Task DeleteAsync(T model)
   {
     if (_context.Entry(model).State is EntityState.Detached)
       _context.Attach(model);
-
+    
     _model.Remove(model);
   }
-
   public async Task DeleteRangeAsync(IEnumerable<T> models)
   => _model.RemoveRange(models);
-
   public async Task ExecuteDeleteAsync(Expression<Func<T, bool>> condition)
   {
+   // _model.Where(condition)();
   }
-
   public async Task UpdateAsync(T model)
   {
     _context.Attach(model);
     _context.Entry(model).State = EntityState.Modified;
   }
-  
   public async Task UpdateRangeAsync(IEnumerable<T> models)
   => _model.UpdateRange(models);
    
