@@ -24,37 +24,36 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         bool asTracking = false)
     {
         List<TResult> result;
-        var models = _model.AsQueryable();
+        IQueryable<T> models = _model.AsQueryable();
 
         if (!asTracking)
             models.AsNoTrackingWithIdentityResolution();
 
-        if (includes != null && includes.Count() > 0)
+        if (includes is not null && includes.Any())
             includes.ForEach(includeProperty => models.Include(includeProperty));
 
 
         models = models.Where(query);
 
-        if (skip != null)
+        if (skip is not null)
             models = models.Skip((int)skip);
 
-        if (take != null)
+        if (take is not null)
             models = models.Take((int)take);
 
-        if (orderBy != null && orderType == OrderType.Asc)
+        if (orderBy is not null && orderType is OrderType.Asc)
             models = models.OrderBy(orderBy).AsQueryable();
 
-        if (orderBy != null && orderType == OrderType.Desc)
+        if (orderBy is not null && orderType is OrderType.Desc)
             models = models.OrderByDescending(orderBy).AsQueryable();
 
-        if (orderBy != null && orderType == null)
+        if (orderBy is not null && orderType == null)
             models = models.OrderBy(orderBy).AsQueryable();
 
-        if (distinct != null)
-            models.Distinct();
+        if (distinct is not null)
+            models = models.Distinct();
 
         result = models.Select(selector).ToList();
-
         return result;
     }
 
@@ -67,35 +66,34 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         bool? distinct = null,
         bool asTracking = false)
     {
-        var models = _model.AsQueryable();
+        IQueryable<T> models = _model.AsQueryable();
 
         if (!asTracking)
             models.AsNoTrackingWithIdentityResolution();
 
-        if (includes != null && includes.Count() > 0)
+        if (includes is not null && includes.Any())
             includes.ForEach(includeProperty => models.Include(includeProperty));
 
-        if (query != null)
+        if (query is not null)
             models = models.Where(query);
 
-        if (skip != null)
+        if (skip is not null)
             models = models.Skip((int)skip);
 
-        if (take != null)
+        if (take is not null)
             models = models.Take((int)take);
 
-        if (orderBy != null && orderType == OrderType.Asc)
+        if (orderBy is not null && orderType is OrderType.Asc)
             models = models.OrderBy(orderBy).AsQueryable();
 
-        if (orderBy != null && orderType == OrderType.Desc)
+        if (orderBy is not null && orderType is OrderType.Desc)
             models = models.OrderByDescending(orderBy).AsQueryable();
 
-        if (orderBy != null && orderType == null)
+        if (orderBy is not null && orderType is null)
             models = models.OrderBy(orderBy).AsQueryable();
 
         if (distinct != null)
-            models.Distinct();
-
+            models = models.Distinct();
         return models.ToList();
     }
 
@@ -110,34 +108,33 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         bool asTracking = false)
     {
         List<TResult> result;
-        var models = _model.AsQueryable();
+        IQueryable<T> models = _model.AsQueryable();
 
         if (!asTracking)
             models.AsNoTrackingWithIdentityResolution();
 
-        if (includes != null && includes.Count() > 0)
+        if (includes is not null && includes.Any())
             includes.ForEach(includeProperty => models.Include(includeProperty));
 
-        if (skip != null)
+        if (skip is not null)
             models = models.Skip((int)skip);
 
-        if (take != null)
+        if (take is not null)
             models = models.Take((int)take);
 
-        if (orderBy != null && orderType == OrderType.Asc)
+        if (orderBy is not null && orderType is OrderType.Asc)
             models = models.OrderBy(orderBy).AsQueryable();
 
-        if (orderBy != null && orderType == OrderType.Desc)
+        if (orderBy is not null && orderType is OrderType.Desc)
             models = models.OrderByDescending(orderBy).AsQueryable();
 
-        if (orderBy != null && orderType == null)
+        if (orderBy is not null && orderType is null)
             models = models.OrderBy(orderBy).AsQueryable();
 
-        if (distinct != null)
-            models.Distinct();
+        if (distinct is not null)
+            models = models.Distinct();
 
         result = models.Select(selector).ToList();
-
         return result;
     }
 
@@ -163,14 +160,12 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (!asTracking)
             model.AsNoTrackingWithIdentityResolution();
 
-        if (includes != null && includes.Count() > 0)
+        if (includes is not null && includes.Any())
             includes.ForEach(includeProperty => model.Include(includeProperty));
 
 
         model = model.Where(query);
-
         result = model.Select(selector).FirstOrDefault();
-
         return result;
     }
 
@@ -180,18 +175,16 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
 
     {
         T result;
-        var model = _model.AsQueryable();
+        IQueryable<T> model = _model.AsQueryable();
 
         if (!asTracking)
             model.AsNoTrackingWithIdentityResolution();
 
-        if (includes != null && includes.Count() > 0)
+        if (includes is not null && includes.Any())
             includes.ForEach(includeProperty => model.Include(includeProperty));
 
         model = model.Where(query);
-
         result = model.FirstOrDefault();
-
         return result;
     }
 
