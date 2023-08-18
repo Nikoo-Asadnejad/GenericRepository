@@ -1,4 +1,4 @@
-using GenericRepository.Interfaces.UnitOfWork;
+using GenericRepository.Abstractions.Interfaces.UnitOfWork;
 
 namespace GenericRepository.Abstractions;
 

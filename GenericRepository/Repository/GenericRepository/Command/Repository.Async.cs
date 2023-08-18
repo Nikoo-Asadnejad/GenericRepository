@@ -1,11 +1,11 @@
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
 using GenericRepository.Data;
-using GenericRepository.Interfaces.Repository;
-using GenericRepository.Models;
+using GenericRepository.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace GenericRepository.Repository;
+namespace GenericRepository.Repository.GenericRepository.Command;
 
 public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
 {
@@ -44,11 +44,32 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
     
     _model.Remove(model);
   }
+
+  public async Task SoftDeleteAsync(long id)
+  {
+    T? model = await _context.FindAsync<T>(id);
+    if (model is not null) 
+      await SoftDeleteAsync(model);
+  }
+  public async Task SoftDeleteAsync(T model)
+  {
+    model.Delete();
+    await UpdateAsync(model);
+  }
   public async Task DeleteRangeAsync(IEnumerable<T> models)
   => _model.RemoveRange(models);
+  public async Task SoftDeleteRangeAsync(IEnumerable<T> models)
+  {
+    foreach (T model in models)
+    {
+      await SoftDeleteAsync(model);
+    }
+    
+  }
+
   public async Task ExecuteDeleteAsync(Expression<Func<T, bool>> condition)
   {
-   // _model.Where(condition)();
+    
   }
   public async Task UpdateAsync(T model)
   {
@@ -57,6 +78,7 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
   }
   public async Task UpdateRangeAsync(IEnumerable<T> models)
   => _model.UpdateRange(models);
+  
    
   
 

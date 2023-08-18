@@ -1,13 +1,13 @@
-using System.Linq.Expressions;
-
-namespace GenericRepository.Models;
+namespace GenericRepository.Entities;
 
 public abstract class BaseEntity 
 {
     public long CreateDate { get; private set; }
     public long? UpdateDate { get; private set; }
     public long? DeleteDate { get; private set; }
-
+    
+    public bool IsDeleted { get; private set; } = false;
+    
     public BaseEntity Create()
     {
         this.CreateDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
@@ -24,9 +24,10 @@ public abstract class BaseEntity
     public BaseEntity Delete()
     {
         if (CreateDate is 0)
-            throw new Exception("Entity State is not valid for updating");
+            throw new Exception("Entity State is not valid for deleting");
         
         this.DeleteDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        this.IsDeleted = true;
         return this;
     }
 

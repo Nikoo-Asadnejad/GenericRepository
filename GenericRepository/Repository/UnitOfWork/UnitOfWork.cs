@@ -1,9 +1,7 @@
-using GenericRepository.Interfaces.UnitOfWork;
-using GenericRepository.Models;
+using GenericRepository.Abstractions.Interfaces.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace GenericRepository.UnitOfWork;
+namespace GenericRepository.Repository.UnitOfWork;
 
 public class UnitOfWork : IUnitOfwork
 {
@@ -19,13 +17,10 @@ public class UnitOfWork : IUnitOfwork
         int result = await _context.SaveChangesAsync();
         return result;
     }
-
     public int Save()
         => _context.SaveChanges();
-
     public async Task DisposeAsync()
         => await _context.DisposeAsync();
-
     public void Dispose()
         => _context.Dispose();
 
