@@ -44,11 +44,32 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
     
     _model.Remove(model);
   }
+
+  public async Task SoftDeleteAsync(long id)
+  {
+    T? model = await _context.FindAsync<T>(id);
+    if (model is not null) 
+      await SoftDeleteAsync(model);
+  }
+  public async Task SoftDeleteAsync(T model)
+  {
+    model.Delete();
+    await UpdateAsync(model);
+  }
   public async Task DeleteRangeAsync(IEnumerable<T> models)
   => _model.RemoveRange(models);
+  public async Task SoftDeleteRangeAsync(IEnumerable<T> models)
+  {
+    foreach (T model in models)
+    {
+      await SoftDeleteAsync(model);
+    }
+    
+  }
+
   public async Task ExecuteDeleteAsync(Expression<Func<T, bool>> condition)
   {
-   // _model.Where(condition)();
+    
   }
   public async Task UpdateAsync(T model)
   {

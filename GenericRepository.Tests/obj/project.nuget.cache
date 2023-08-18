@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NgOSAfvqjsaAOYu7htDj5FkWDEQcWOn9e5K6OZd1PrdIC/qnn+nFjwbrEAE9loAZCLIaujnP2CwXMxJBHhvtLg==",
+  "dgSpecHash": "njg6fgBNIKgbat3ZmRBjwhkUufTH43NBPCIhv11M51nvpA5uP0rrzfF6qtEQJFlbrC4AAYQhOY0RStybQ6CrxQ==",
   "success": true,
   "projectFilePath": "/Users/macbook/Projects/Generic Repository/GenericRepository.Tests/GenericRepository.Tests.csproj",
   "expectedPackageFiles": [
@@ -8,9 +8,9 @@
     "/Users/macbook/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.codecoverage/17.3.2/microsoft.codecoverage.17.3.2.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",
-    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore/7.0.9/microsoft.entityframeworkcore.7.0.9.nupkg.sha512",
-    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.9/microsoft.entityframeworkcore.abstractions.7.0.9.nupkg.sha512",
-    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.9/microsoft.entityframeworkcore.analyzers.7.0.9.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore/7.0.10/microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.10/microsoft.entityframeworkcore.abstractions.7.0.10.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.10/microsoft.entityframeworkcore.analyzers.7.0.10.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.extensions.caching.memory/7.0.0/microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ICDclps/I8nBDXUdZY76vPUtDs9gyhonu8mDW7fp0JbWb8PS0AudKJdHMx+1JHmYei/Dv1za/j5dQ3Vjq2X6MQ==",
+  "dgSpecHash": "BHrNXsZkPLqGKWmhmZsPKTBU5m4RWd9vvhzUqw3HU8nrqqFdEw0wEkNkR2igz1bW8yJ4g/c/HXzpqHnwmcBPXQ==",
   "success": true,
   "projectFilePath": "/Users/macbook/Projects/Generic Repository/GenericRepository/GenericRepository.csproj",
   "expectedPackageFiles": [
-    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore/7.0.9/microsoft.entityframeworkcore.7.0.9.nupkg.sha512",
-    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.9/microsoft.entityframeworkcore.abstractions.7.0.9.nupkg.sha512",
-    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.9/microsoft.entityframeworkcore.analyzers.7.0.9.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore/7.0.10/microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.10/microsoft.entityframeworkcore.abstractions.7.0.10.nupkg.sha512",
+    "/Users/macbook/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.10/microsoft.entityframeworkcore.analyzers.7.0.10.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.extensions.caching.memory/7.0.0/microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "/Users/macbook/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",

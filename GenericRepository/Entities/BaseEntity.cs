@@ -5,7 +5,7 @@ public abstract class BaseEntity
     public long CreateDate { get; private set; }
     public long? UpdateDate { get; private set; }
     public long? DeleteDate { get; private set; }
-
+    
     public BaseEntity Create()
     {
         this.CreateDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
