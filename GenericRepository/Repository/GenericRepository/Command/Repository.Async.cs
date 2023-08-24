@@ -17,16 +17,7 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
     this._context = context;
     _model = _context.Set<T>();
   }
-
-  public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
-  {
-    IDbContextTransaction dbContextTransaction = await _context.Database.BeginTransactionAsync(cancellationToken);
-    return dbContextTransaction;
-  }
-  public async Task RollbackTransactionAsync()
-    =>await _context.Database.RollbackTransactionAsync();
-  public async Task CommitTransactionAsync()
-    => await _context.Database.CommitTransactionAsync();
+  
   public async Task AddAsync(T model)
   => await _model.AddAsync(model);
   public async Task AddRangeAsync(IEnumerable<T> models)

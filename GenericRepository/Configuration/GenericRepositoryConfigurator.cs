@@ -15,7 +15,7 @@ namespace GenericRepository.Configuration
     public static void InjectServices(IServiceCollection services)
     {
       services.AddMemoryCache();
-      services.AddTransient<IUnitOfwork, UnitOfWork>();
+      services.AddTransient<IUnitOfWork, UnitOfWork>();
       services.AddScoped<DbContext, CommandContext>();
       services.AddScoped<DbContext, QueryContext>();
       services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
