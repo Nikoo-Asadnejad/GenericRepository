@@ -39,7 +39,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         bool? distinct = null,
         bool asTracking = false)
     {
-        List<TResult> result;
+        IReadOnlyList<TResult> result;
         IQueryable<T> models = _model.AsQueryable();
 
         if (!asTracking)
@@ -68,7 +68,9 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (distinct is not null)
             models.Distinct();
 
-        result = models.Select(selector).ToList();
+        result = models.Select(selector)
+                        .ToList()
+                        .AsReadOnly();
         return result;
     }
 
@@ -122,7 +124,8 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (distinct is not null)
             models.Distinct();
 
-        return models.ToList();
+        return models.ToList()
+                     .AsReadOnly();
     }
 
     public async Task<IReadOnlyList<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
@@ -134,7 +137,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         bool? distinct = null,
         bool asTracking = false)
     {
-        List<TResult> result;
+        IReadOnlyList<TResult> result;
         IQueryable<T> models = _model.AsQueryable();
 
         if (!asTracking)
@@ -161,7 +164,9 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (distinct is not null)
             models.Distinct();
 
-        result = models.Select(selector).ToList();
+        result = models.Select(selector)
+                        .ToList()
+                        .AsReadOnly();
         return result;
     }
 
