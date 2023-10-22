@@ -29,7 +29,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     /// <param name="skip">skip</param>
     /// <param name="take">take</param>
     /// <returns></returns>
-    public async Task<List<TResult>> GetListAsync<TResult>(Expression<Func<T, bool>>? query,
+    public async Task<IReadOnlyList<TResult>> GetListAsync<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
@@ -39,7 +39,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         bool? distinct = null,
         bool asTracking = false)
     {
-        List<TResult> result;
+        IReadOnlyList<TResult> result;
         IQueryable<T> models = _model.AsQueryable();
 
         if (!asTracking)
@@ -68,7 +68,9 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (distinct is not null)
             models.Distinct();
 
-        result = models.Select(selector).ToList();
+        result = models.Select(selector)
+                        .ToList()
+                        .AsReadOnly();
         return result;
     }
 
@@ -84,7 +86,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     /// <param name="distinct"></param>
     /// <param name="asTracking"></param>
     /// <returns></returns>
-    public async Task<List<T>> GetListAsync(Expression<Func<T, bool>>? query = null,
+    public async Task<IReadOnlyList<T>> GetListAsync(Expression<Func<T, bool>>? query = null,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
@@ -122,10 +124,11 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (distinct is not null)
             models.Distinct();
 
-        return models.ToList();
+        return models.ToList()
+                     .AsReadOnly();
     }
 
-    public async Task<List<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
+    public async Task<IReadOnlyList<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
@@ -134,7 +137,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         bool? distinct = null,
         bool asTracking = false)
     {
-        List<TResult> result;
+        IReadOnlyList<TResult> result;
         IQueryable<T> models = _model.AsQueryable();
 
         if (!asTracking)
@@ -161,11 +164,13 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         if (distinct is not null)
             models.Distinct();
 
-        result = models.Select(selector).ToList();
+        result = models.Select(selector)
+                        .ToList()
+                        .AsReadOnly();
         return result;
     }
 
-    public async Task<List<T>> GetAllAsync(
+    public async Task<IReadOnlyList<T>> GetAllAsync(
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,

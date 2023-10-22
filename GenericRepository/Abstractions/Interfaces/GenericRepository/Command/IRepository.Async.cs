@@ -6,9 +6,7 @@ namespace GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
 
 public partial interface IRepository<T> where T : BaseEntity
 {
-    Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default);
-    Task RollbackTransactionAsync();
-    Task CommitTransactionAsync();
+
     Task AddAsync(T model);
     Task AddRangeAsync(IEnumerable<T> models);
     Task UpdateAsync(T model);

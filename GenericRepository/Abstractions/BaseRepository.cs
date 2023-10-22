@@ -1,13 +1,13 @@
 using GenericRepository.Abstractions.Interfaces.UnitOfWork;
+using Microsoft.EntityFrameworkCore;
 
 namespace GenericRepository.Abstractions;
 
 public abstract class BaseRepository
 {
-    private readonly IUnitOfwork _unitOfwork;
-
-    public BaseRepository(IUnitOfwork unitOfwork)
+    private readonly IUnitOfWork _unitOfWork;
+    protected BaseRepository(IUnitOfWork unitOfWork)
     {
-        _unitOfwork = unitOfwork;
+        _unitOfWork = unitOfWork;
     }
 }

@@ -5,7 +5,6 @@ public abstract class BaseEntity
     public long CreateDate { get; private set; }
     public long? UpdateDate { get; private set; }
     public long? DeleteDate { get; private set; }
-    
     public bool IsDeleted { get; private set; } = false;
     
     public BaseEntity Create()
