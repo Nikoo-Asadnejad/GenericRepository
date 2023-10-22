@@ -17,10 +17,13 @@ public class UnitOfWork :  IUnitOfWork
         int result = await _context.SaveChangesAsync();
         return result;
     }
+    
     public int Save()
         => _context.SaveChanges();
+    
     public async Task DisposeAsync()
         => await _context.DisposeAsync();
+    
     public void Dispose()
         => _context.Dispose();
     
@@ -29,11 +32,11 @@ public class UnitOfWork :  IUnitOfWork
         IDbContextTransaction dbContextTransaction = await _context.Database.BeginTransactionAsync(cancellationToken);
         return dbContextTransaction;
     }
+    
     public async Task RollbackTransactionAsync()
         =>await _context.Database.RollbackTransactionAsync();
+    
     public async Task CommitTransactionAsync()
         => await _context.Database.CommitTransactionAsync();
-
-
-
+    
 }
