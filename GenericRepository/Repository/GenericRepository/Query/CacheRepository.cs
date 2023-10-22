@@ -31,7 +31,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         });
     }
     
-    public async Task<List<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
+    public async Task<IReadOnlyList<TResult>> GetAllAsync<TResult>(Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
@@ -41,7 +41,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         bool asTracking = false)
     {
         string key = GenerateCacheKey(query: null, selector, orderBy, orderType, includes, skip, take, distinct);
-        return await _memoryCache.GetOrCreateAsync<List<TResult>>(key, async (entry) =>
+        return await _memoryCache.GetOrCreateAsync<IReadOnlyList<TResult>>(key, async (entry) =>
         {
             entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
             return await _repository.GetAllAsync<TResult>(selector, orderBy, orderType, includes, skip, take, distinct,
@@ -49,7 +49,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         });
     }
 
-    public async Task<List<T>> GetAllAsync(Func<T, object>? orderBy = null,
+    public async Task<IReadOnlyList<T>> GetAllAsync(Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
         int? skip = 0,
@@ -58,7 +58,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         bool asTracking = false)
     {
         string key = GenerateCacheKey(query: null, selector: null, orderBy, orderType, includes, skip, take, distinct);
-        return await _memoryCache.GetOrCreateAsync<List<T>>(key, async (entry) =>
+        return await _memoryCache.GetOrCreateAsync<IReadOnlyList<T>>(key, async (entry) =>
         {
             entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
             return await _repository.GetAllAsync(orderBy, orderType, includes, skip, take, distinct, asTracking);
@@ -69,7 +69,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         => await _repository.GetCountAsync(query);
 
 
-    public async Task<List<TResult>> GetListAsync<TResult>(Expression<Func<T, bool>>? query,
+    public async Task<IReadOnlyList<TResult>> GetListAsync<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,
         Func<T, object>? orderBy = null, 
         OrderType? orderType = null, 
@@ -80,7 +80,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         bool asTracking = false)
     {
         string key = GenerateCacheKey(query, selector, orderBy, orderType, includes, skip, take, distinct);
-        return await _memoryCache.GetOrCreateAsync<List<TResult>>(key, async (entry) =>
+        return await _memoryCache.GetOrCreateAsync<IReadOnlyList<TResult>>(key, async (entry) =>
         {
             entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
             return await _repository.GetListAsync<TResult>(query, selector, orderBy, orderType, includes, skip, take,
@@ -88,7 +88,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         });
     }
 
-    public async Task<List<T>> GetListAsync(Expression<Func<T, bool>>? query = null,
+    public async Task<IReadOnlyList<T>> GetListAsync(Expression<Func<T, bool>>? query = null,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
@@ -98,7 +98,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         bool asTracking = false)
     {
         string key = GenerateCacheKey(query, selector: null, orderBy, orderType, includes, skip, take, distinct);
-        return await _memoryCache.GetOrCreateAsync<List<T>>(key, async (entry) =>
+        return await _memoryCache.GetOrCreateAsync<IReadOnlyList<T>>(key, async (entry) =>
         {
             entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
             return await _repository.GetListAsync(query, orderBy, orderType, includes, skip, take, distinct,
@@ -147,7 +147,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         });
     }
 
-    public List<TResult> GetAll<TResult>(Func<T, TResult> selector,
+    public IReadOnlyList<TResult> GetAll<TResult>(Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
@@ -156,7 +156,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         bool asTracking = false)
     {
         string key = GenerateCacheKey(query: null, selector, orderBy, orderType, includes, skip, take, distinct);
-        return _memoryCache.GetOrCreate<List<TResult>>(key, (entry) =>
+        return _memoryCache.GetOrCreate<IReadOnlyList<TResult>>(key, (entry) =>
         {
             entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
             return _repository.GetAll<TResult>(selector, orderBy, orderType, includes, skip, take, distinct,
@@ -164,7 +164,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         });
     }
 
-    public List<T> GetAll(Func<T, object>? orderBy = null,
+    public IReadOnlyList<T> GetAll(Func<T, object>? orderBy = null,
         OrderType? orderType = null, 
         List<string>? includes = null,
         int? skip = 0, int? take = null,
@@ -172,14 +172,14 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         bool asTracking = false)
     {
         string key = GenerateCacheKey(query: null, selector: null, orderBy, orderType, includes, skip, take, distinct);
-        return _memoryCache.GetOrCreate<List<T>>(key, (entry) =>
+        return _memoryCache.GetOrCreate<IReadOnlyList<T>>(key, (entry) =>
         {
             entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
             return _repository.GetAll(orderBy, orderType, includes, skip, take, distinct, asTracking);
         });
     }
 
-    public List<TResult> GetList<TResult>(Expression<Func<T, bool>>? query,
+    public IReadOnlyList<TResult> GetList<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
@@ -190,7 +190,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         bool asTracking = false)
     {
         string key = GenerateCacheKey(query, selector, orderBy, orderType, includes, skip, take, distinct);
-        return _memoryCache.GetOrCreate<List<TResult>>(key, (entry) =>
+        return _memoryCache.GetOrCreate<IReadOnlyList<TResult>>(key, (entry) =>
         {
             entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
             return _repository.GetList<TResult>(query, selector, orderBy, orderType, includes, skip, take, distinct,
@@ -198,7 +198,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         });
     }
 
-    public List<T> GetList(Expression<Func<T, bool>>? query = null,
+    public IReadOnlyList<T> GetList(Expression<Func<T, bool>>? query = null,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
@@ -207,7 +207,7 @@ public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Ba
         bool asTracking = false)
     {
         string key = GenerateCacheKey(query, selector: null, orderBy, orderType, includes, skip, take, distinct);
-        return _memoryCache.GetOrCreate<List<T>>(key, (entry) =>
+        return _memoryCache.GetOrCreate<IReadOnlyList<T>>(key, (entry) =>
         {
             entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
             return _repository.GetList(query, orderBy, orderType, includes, skip, take, distinct, asTracking);

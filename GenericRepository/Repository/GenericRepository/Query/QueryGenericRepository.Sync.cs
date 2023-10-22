@@ -13,7 +13,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     public long GetCount(Expression<Func<T, bool>>? query = null)
         => _model.Count(query);
 
-    public List<TResult> GetList<TResult>(Expression<Func<T, bool>>? query,
+    public IReadOnlyList<TResult> GetList<TResult>(Expression<Func<T, bool>>? query,
         Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
@@ -57,7 +57,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
         return result;
     }
 
-    public List<T> GetList(Expression<Func<T, bool>>? query = null,
+    public IReadOnlyList<T> GetList(Expression<Func<T, bool>>? query = null,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
@@ -98,7 +98,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     }
 
 
-    public List<TResult> GetAll<TResult>(Func<T, TResult> selector,
+    public IReadOnlyList<TResult> GetAll<TResult>(Func<T, TResult> selector,
         Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
@@ -139,7 +139,7 @@ public sealed partial class QueryGenericRepository<T> : IQueryGenericRepository<
     }
 
 
-    public List<T> GetAll(Func<T, object>? orderBy = null,
+    public IReadOnlyList<T> GetAll(Func<T, object>? orderBy = null,
         OrderType? orderType = null,
         List<string>? includes = null,
         int? skip = 0,
