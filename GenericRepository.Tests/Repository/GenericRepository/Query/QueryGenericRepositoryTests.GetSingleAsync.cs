@@ -1,5 +1,3 @@
-using GenericRepository.Data;
-using GenericRepository.Repository;
 using GenericRepository.Tests.MoqData;
 using Moq;
 

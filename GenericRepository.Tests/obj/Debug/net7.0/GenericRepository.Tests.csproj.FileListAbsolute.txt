@@ -117,3 +117,5 @@
 /Users/macbook/Projects/Generic Repository/GenericRepository.Tests/obj/Debug/net7.0/GenericRepository.Tests.pdb
 /Users/macbook/Projects/Generic Repository/GenericRepository.Tests/obj/Debug/net7.0/GenericRepository.Tests.genruntimeconfig.cache
 /Users/macbook/Projects/Generic Repository/GenericRepository.Tests/obj/Debug/net7.0/ref/GenericRepository.Tests.dll
+/Users/macbook/Projects/Generic Repository/GenericRepository.Tests/bin/Debug/net7.0/MediatR.dll
+/Users/macbook/Projects/Generic Repository/GenericRepository.Tests/bin/Debug/net7.0/MediatR.Contracts.dll
