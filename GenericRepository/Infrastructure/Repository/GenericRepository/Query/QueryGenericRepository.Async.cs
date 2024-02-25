@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 using GenericRepository.Abstractions.Interfaces.GenericRepository.Query;
-using GenericRepository.Data;
+using GenericRepository.Context;
 using GenericRepository.Enumerations;
 using Microsoft.EntityFrameworkCore;
 

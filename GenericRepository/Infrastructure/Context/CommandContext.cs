@@ -1,8 +1,9 @@
+using System.Reflection;
 using GenericRepository.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace GenericRepository.Data;
+namespace GenericRepository.Context;
 
 public class CommandContext : DbContext
 {
@@ -10,6 +11,11 @@ public class CommandContext : DbContext
     {
         ChangeTracker.StateChanged += TrackChanges;
         ChangeTracker.Tracked += TrackChanges;
+    }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
     private static void TrackChanges(object sender, EntityEntryEventArgs e)
     {

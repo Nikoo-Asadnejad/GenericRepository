@@ -1,7 +1,7 @@
 using GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
 using GenericRepository.Abstractions.Interfaces.GenericRepository.Query;
 using GenericRepository.Abstractions.Interfaces.UnitOfWork;
-using GenericRepository.Data;
+using GenericRepository.Context;
 using GenericRepository.Infrastructure.Interceptors;
 using GenericRepository.Repository.GenericRepository.Command;
 using GenericRepository.Repository.GenericRepository.Query;
