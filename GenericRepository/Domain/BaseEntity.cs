@@ -1,3 +1,5 @@
+using GenericRepository.Abstractions;
+
 namespace GenericRepository.Entities;
 
 public abstract class BaseEntity 
@@ -6,6 +8,18 @@ public abstract class BaseEntity
     public long? UpdateDate { get; private set; }
     public long? DeleteDate { get; private set; }
     public bool IsDeleted { get; private set; } = false;
+
+    public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+
+    private List<IDomainEvent> _domainEvents = new();
+    public void ClearDomainEvents()
+    {
+        _domainEvents.Clear();
+    }
+    protected void RaiseDomainEvent(IDomainEvent domainEvent)
+    {
+        _domainEvents.Add(domainEvent);
+    }
     
     public BaseEntity Create()
     {
