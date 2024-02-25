@@ -2,6 +2,7 @@ using GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
 using GenericRepository.Abstractions.Interfaces.GenericRepository.Query;
 using GenericRepository.Abstractions.Interfaces.UnitOfWork;
 using GenericRepository.Data;
+using GenericRepository.Infrastructure.Interceptors;
 using GenericRepository.Repository.GenericRepository.Command;
 using GenericRepository.Repository.GenericRepository.Query;
 using GenericRepository.Repository.UnitOfWork;
@@ -18,6 +19,7 @@ namespace GenericRepository.Configuration
       services.AddTransient<IUnitOfWork, UnitOfWork>();
       services.AddScoped<DbContext, CommandContext>();
       services.AddScoped<DbContext, QueryContext>();
+      services.AddSingleton<PublishDomainEventsInterceptor>();
       services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
       services.AddTransient(typeof(IQueryGenericRepository<>), typeof(QueryGenericRepository<>));
       services.Decorate(typeof(IQueryGenericRepository<>), typeof(CacheRepository<>));

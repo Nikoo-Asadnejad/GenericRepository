@@ -1,6 +1,8 @@
+using MediatR;
+
 namespace GenericRepository.Abstractions;
 
-public interface IDomainEvent
+public interface IDomainEvent : INotification
 {
     
 }
