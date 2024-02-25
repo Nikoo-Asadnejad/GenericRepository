@@ -1,10 +1,10 @@
 using System.Linq.Expressions;
-using GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
-using GenericRepository.Context;
-using GenericRepository.Entities;
+using GenericRepository.Application.Interfaces.GenericRepository.Command;
+using GenericRepository.Domain;
+using GenericRepository.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace GenericRepository.Repository.GenericRepository.Command;
+namespace GenericRepository.Infrastructure.Repository.GenericRepository.Command;
 
 public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
 {

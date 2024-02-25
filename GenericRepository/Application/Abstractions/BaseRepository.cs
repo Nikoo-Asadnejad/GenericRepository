@@ -1,7 +1,7 @@
-using GenericRepository.Abstractions.Interfaces.UnitOfWork;
+using GenericRepository.Application.Interfaces.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
-namespace GenericRepository.Abstractions;
+namespace GenericRepository.Application.Abstractions;
 
 public abstract class BaseRepository
 {

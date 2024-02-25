@@ -1,8 +1,8 @@
-using GenericRepository.Entities;
+using GenericRepository.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace GenericRepository.Infrastructure.Configurations;
+namespace GenericRepository.Infrastructure.EntitytypeConfigurations;
 
 public class OutBoxMessageConfiguration : IEntityTypeConfiguration<OutBoxMessage>
 {

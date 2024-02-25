@@ -1,9 +1,9 @@
 using System.Reflection;
-using GenericRepository.Entities;
+using GenericRepository.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace GenericRepository.Context;
+namespace GenericRepository.Infrastructure.Context;
 
 public class CommandContext : DbContext
 {

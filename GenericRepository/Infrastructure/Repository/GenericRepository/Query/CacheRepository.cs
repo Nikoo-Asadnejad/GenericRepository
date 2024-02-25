@@ -1,10 +1,10 @@
 using System.Linq.Expressions;
-using GenericRepository.Abstractions.Interfaces.GenericRepository.Query;
-using GenericRepository.Entities;
-using GenericRepository.Enumerations;
+using GenericRepository.Application.Enumerations;
+using GenericRepository.Application.Interfaces.GenericRepository.Query;
+using GenericRepository.Domain;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace GenericRepository.Repository.GenericRepository.Query;
+namespace GenericRepository.Infrastructure.Repository.GenericRepository.Query;
 
 public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseEntity
 {

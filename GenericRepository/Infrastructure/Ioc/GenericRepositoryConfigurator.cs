@@ -1,15 +1,15 @@
-using GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
-using GenericRepository.Abstractions.Interfaces.GenericRepository.Query;
-using GenericRepository.Abstractions.Interfaces.UnitOfWork;
-using GenericRepository.Context;
-using GenericRepository.Infrastructure.Interceptors;
-using GenericRepository.Repository.GenericRepository.Command;
-using GenericRepository.Repository.GenericRepository.Query;
-using GenericRepository.Repository.UnitOfWork;
+using GenericRepository.Application.Interfaces.GenericRepository.Command;
+using GenericRepository.Application.Interfaces.GenericRepository.Query;
+using GenericRepository.Application.Interfaces.UnitOfWork;
+using GenericRepository.Infrastructure.Context;
+using GenericRepository.Infrastructure.EfInterceptors;
+using GenericRepository.Infrastructure.Repository.GenericRepository.Command;
+using GenericRepository.Infrastructure.Repository.GenericRepository.Query;
+using GenericRepository.Infrastructure.Repository.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GenericRepository.Configuration
+namespace GenericRepository.Infrastructure.Ioc
 {
   public static class GenericRepositoryConfigurator
   {

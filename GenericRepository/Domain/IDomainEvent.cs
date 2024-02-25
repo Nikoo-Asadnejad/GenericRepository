@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace GenericRepository.Abstractions;
+namespace GenericRepository.Domain;
 
 public interface IDomainEvent : INotification
 {

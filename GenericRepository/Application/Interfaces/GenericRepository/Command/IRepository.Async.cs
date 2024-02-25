@@ -1,8 +1,7 @@
 using System.Linq.Expressions;
-using GenericRepository.Entities;
-using Microsoft.EntityFrameworkCore.Storage;
+using GenericRepository.Domain;
 
-namespace GenericRepository.Abstractions.Interfaces.GenericRepository.Command;
+namespace GenericRepository.Application.Interfaces.GenericRepository.Command;
 
 public partial interface IRepository<T> where T : BaseEntity
 {

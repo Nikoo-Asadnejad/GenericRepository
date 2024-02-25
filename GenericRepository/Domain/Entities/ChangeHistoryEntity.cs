@@ -1,4 +1,4 @@
-namespace GenericRepository.Entities;
+namespace GenericRepository.Domain.Entities;
 
 public class ChangeHistoryEntity : BaseEntity
 {

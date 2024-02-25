@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace GenericRepository.Context;
+namespace GenericRepository.Infrastructure.Context;
 
 public class QueryContext : DbContext
 {

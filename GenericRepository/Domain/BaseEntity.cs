@@ -1,6 +1,4 @@
-using GenericRepository.Abstractions;
-
-namespace GenericRepository.Entities;
+namespace GenericRepository.Domain;
 
 public abstract class BaseEntity : IEquatable<BaseEntity>
 {

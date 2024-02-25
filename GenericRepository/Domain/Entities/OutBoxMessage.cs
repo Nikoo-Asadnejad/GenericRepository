@@ -1,7 +1,6 @@
 using System.Text.Json;
-using GenericRepository.Abstractions;
 
-namespace GenericRepository.Entities;
+namespace GenericRepository.Domain.Entities;
 
 public class OutBoxMessage : BaseEntity
 {

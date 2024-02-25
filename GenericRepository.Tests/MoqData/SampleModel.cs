@@ -1,4 +1,4 @@
-using GenericRepository.Entities;
+using GenericRepository.Domain;
 
 namespace GenericRepository.Tests.MoqData;
 

@@ -1,4 +1,4 @@
-namespace GenericRepository.Enumerations
+namespace GenericRepository.Application.Enumerations
 {
   public enum OrderType
   {

@@ -1,10 +1,9 @@
-using GenericRepository.Abstractions;
-using GenericRepository.Entities;
+using GenericRepository.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace GenericRepository.Infrastructure.Interceptors;
+namespace GenericRepository.Infrastructure.EfInterceptors;
 
 public sealed class PublishDomainEventsInterceptor : SaveChangesInterceptor
 {

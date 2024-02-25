@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
-using GenericRepository.Enumerations;
+using GenericRepository.Application.Enumerations;
 
-namespace GenericRepository.Abstractions.Interfaces.GenericRepository.Query;
+namespace GenericRepository.Application.Interfaces.GenericRepository.Query;
 
 public partial interface IQueryGenericRepository<T>
 {
