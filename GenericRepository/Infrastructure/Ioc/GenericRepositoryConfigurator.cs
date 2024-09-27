@@ -16,7 +16,7 @@ namespace GenericRepository.Infrastructure.Ioc
     public static void InjectServices(IServiceCollection services)
     {
       services.AddMemoryCache();
-      services.AddTransient<IUnitOfWork, UnitOfWork>();
+      services.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
       services.AddScoped<DbContext, CommandContext>();
       services.AddScoped<DbContext, QueryContext>();
       services.AddSingleton<PublishDomainEventsInterceptor>();

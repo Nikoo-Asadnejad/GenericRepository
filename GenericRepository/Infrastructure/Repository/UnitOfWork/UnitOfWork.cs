@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Infrastructure.Repository.UnitOfWork;
 
-public class UnitOfWork :  IUnitOfWork
+public class UnitOfWork<TContext> :  IUnitOfWork<TContext> where TContext : DbContext
 {
-    private readonly DbContext _context;
-    public UnitOfWork(DbContext context)
+    private readonly TContext _context;
+    public UnitOfWork(TContext context)
     {
         _context = context;
     }

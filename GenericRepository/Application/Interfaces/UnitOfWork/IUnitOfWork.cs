@@ -1,9 +1,10 @@
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Application.Interfaces.UnitOfWork;
 
-public interface IUnitOfWork 
+public interface IUnitOfWork<TContext> where TContext : DbContext
 { 
     Task<int> SaveAsync();
     int Save();
