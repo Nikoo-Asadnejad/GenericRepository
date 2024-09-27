@@ -1,0 +1,13 @@
+/Users/macbook/Projects/Generic Repository/GenericRepository/bin/Debug/net8.0/GenericRepository.deps.json
+/Users/macbook/Projects/Generic Repository/GenericRepository/bin/Debug/net8.0/GenericRepository.dll
+/Users/macbook/Projects/Generic Repository/GenericRepository/bin/Debug/net8.0/GenericRepository.pdb
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/GenericRepository.csproj.AssemblyReference.cache
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/GenericRepository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/GenericRepository.AssemblyInfoInputs.cache
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/GenericRepository.AssemblyInfo.cs
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/GenericRepository.csproj.CoreCompileInputs.cache
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/GenericRepository.sourcelink.json
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/GenericRepository.dll
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/refint/GenericRepository.dll
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/GenericRepository.pdb
+/Users/macbook/Projects/Generic Repository/GenericRepository/obj/Debug/net8.0/ref/GenericRepository.dll
