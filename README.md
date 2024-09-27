@@ -17,6 +17,9 @@ This class library implements the Generic Repository Pattern for SQL Server data
 - Cache Repository: Implements caching for the query repository using the decorator pattern.
 - Domain Event Handler: Handles domain events and executes related actions.
 - Audit Log Service: Records and manages audit logs for repository interactions.
+- Support for Multiple DbContext: Enables the handling of multiple database contexts, allowing flexibility and separation of concerns for different data models.
+- Raw SQL Execution: Allows execution of raw SQL commands for advanced query scenarios and performance optimization.
+- SQL Transactions: Provides support for executing operations within transactions, ensuring data consistency and integrity during batch operations.
 
 ## Configuration:
 Pass `IServiceCollection` to following method to add services to your DI:
