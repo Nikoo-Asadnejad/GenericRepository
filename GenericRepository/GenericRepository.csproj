@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Application" />
+    <Folder Include="Application\Abstractions\" />
   </ItemGroup>
 
 </Project>
