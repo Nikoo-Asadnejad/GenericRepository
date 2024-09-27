@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Application.Interfaces.GenericRepository.Command;
@@ -14,8 +15,6 @@ public partial interface IRepository<T>
     void Delete(long id);
     void Delete(T model);
     void DeleteRange(IEnumerable<T> models);
-
     void ClearChangeTracker();
-
-
+    void ExecuteDelete(Expression<Func<T, bool>> condition);
 }
