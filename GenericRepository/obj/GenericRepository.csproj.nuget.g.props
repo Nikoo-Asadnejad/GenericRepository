@@ -15,4 +15,7 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore/8.0.8/buildTransitive/net8.0/Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore/8.0.8/buildTransitive/net8.0/Microsoft.EntityFrameworkCore.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">/Users/macbook/.nuget/packages/entityframework/6.1.3</PkgEntityFramework>
+  </PropertyGroup>
 </Project>

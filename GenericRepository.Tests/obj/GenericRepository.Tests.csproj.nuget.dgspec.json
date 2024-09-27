@@ -135,6 +135,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EFCore.BulkExtensions": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "EntityFramework.BulkExtensions": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.2.0, )"

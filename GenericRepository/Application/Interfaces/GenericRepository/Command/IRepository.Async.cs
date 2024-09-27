@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using GenericRepository.Domain;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace GenericRepository.Application.Interfaces.GenericRepository.Command;
 
@@ -17,5 +18,9 @@ public partial interface IRepository<T> where T : BaseEntity
     Task DeleteRangeAsync(IEnumerable<T> models);
     Task SoftDeleteRangeAsync(IEnumerable<T> models);
     Task ExecuteDeleteAsync(Expression<Func<T, bool>> condition);
+    Task ExecuteUpdateAsync(Expression<Func<T, bool>> condition , Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression);
+    Task ExecuteUpdateAsync(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression);
+
+    Task TruncateTableAsync();
 
 }
