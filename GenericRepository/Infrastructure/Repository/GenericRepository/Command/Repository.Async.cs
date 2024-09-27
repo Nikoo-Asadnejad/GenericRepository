@@ -81,18 +81,17 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
           .ExecuteDeleteAsync();
   }
   
-  
-   
-  
-
-
-
-
-
-
-
-
-
+  public async Task ExecuteUpdateAsync(Expression<Func<T, bool>> condition,
+    Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression)
+  {
+    await _model.Where(condition)
+      .ExecuteUpdateAsync(updateExpression);
+  }
+    
+  public async Task ExecuteUpdateAsync(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression)
+  {
+    await _model.ExecuteUpdateAsync(updateExpression);
+  }
 
 }
 

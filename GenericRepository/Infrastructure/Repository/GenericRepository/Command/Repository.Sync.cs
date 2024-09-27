@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using GenericRepository.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Infrastructure.Repository.GenericRepository.Command;
@@ -56,6 +57,18 @@ public sealed partial class Repository<T> where T : BaseEntity
     {
         _model.Where(condition)
               .ExecuteDelete();
+    }
+    
+    public void ExecuteUpdate(Expression<Func<T, bool>> condition,
+        Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression)
+    {
+        _model.Where(condition)
+            .ExecuteUpdate(updateExpression);
+    }
+    
+    public void ExecuteUpdate(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression)
+    {
+        _model.ExecuteUpdate(updateExpression);
     }
 
 }

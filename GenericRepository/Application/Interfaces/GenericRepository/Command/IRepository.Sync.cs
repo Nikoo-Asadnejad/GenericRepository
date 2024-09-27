@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Application.Interfaces.GenericRepository.Command;
@@ -17,4 +18,7 @@ public partial interface IRepository<T>
     void DeleteRange(IEnumerable<T> models);
     void ClearChangeTracker();
     void ExecuteDelete(Expression<Func<T, bool>> condition);
+    void ExecuteUpdate(Expression<Func<T, bool>> condition,
+        Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression);
+    void ExecuteUpdate(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression);
 }
