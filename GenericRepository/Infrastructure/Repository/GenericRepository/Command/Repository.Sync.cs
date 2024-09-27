@@ -71,4 +71,9 @@ public sealed partial class Repository<T> where T : BaseEntity
         _model.ExecuteUpdate(updateExpression);
     }
 
+    public void TruncateTable()
+    {
+        var tableName = _context.Model.FindEntityType(typeof(T)).GetTableName();
+         _context.Database.ExecuteSqlRaw($"TRUNCATE TABLE {tableName}");
+    }
 }

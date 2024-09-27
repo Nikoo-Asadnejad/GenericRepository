@@ -21,4 +21,5 @@ public partial interface IRepository<T>
     void ExecuteUpdate(Expression<Func<T, bool>> condition,
         Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression);
     void ExecuteUpdate(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression);
+    void TruncateTable();
 }

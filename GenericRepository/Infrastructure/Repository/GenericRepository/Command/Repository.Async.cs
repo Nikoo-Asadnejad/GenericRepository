@@ -93,5 +93,10 @@ public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
     await _model.ExecuteUpdateAsync(updateExpression);
   }
 
+  public async Task TruncateTableAsync()
+  {
+    var tableName = _context.Model.FindEntityType(typeof(T)).GetTableName();
+    await _context.Database.ExecuteSqlRawAsync($"TRUNCATE TABLE {tableName}");
+  }
 }
 

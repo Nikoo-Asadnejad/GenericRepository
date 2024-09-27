@@ -21,4 +21,6 @@ public partial interface IRepository<T> where T : BaseEntity
     Task ExecuteUpdateAsync(Expression<Func<T, bool>> condition , Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression);
     Task ExecuteUpdateAsync(Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> updateExpression);
 
+    Task TruncateTableAsync();
+
 }
