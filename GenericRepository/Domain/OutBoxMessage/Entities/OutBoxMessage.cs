@@ -27,6 +27,7 @@ public class OutBoxMessage : Entity
     public DateTime? ProcessedOnUtc { get; private set; }
     public string? Error { get; private set; }
     public OutBoxMessageEventType EventType { get; init; }
+    public bool IsProcessed => ProcessedOnUtc.HasValue;
     public void Process(string? error = null)
     {
         ProcessedOnUtc = DateTime.UtcNow;

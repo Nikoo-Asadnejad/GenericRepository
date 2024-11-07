@@ -3,6 +3,7 @@ using GenericRepository.Application.Interfaces.GenericRepository.Query;
 using GenericRepository.Application.Interfaces.UnitOfWork;
 using GenericRepository.Infrastructure.Context;
 using GenericRepository.Infrastructure.EfInterceptors;
+using GenericRepository.Infrastructure.Jobs;
 using GenericRepository.Infrastructure.Repository.GenericRepository.Command;
 using GenericRepository.Infrastructure.Repository.GenericRepository.Query;
 using GenericRepository.Infrastructure.Repository.UnitOfWork;
@@ -23,6 +24,7 @@ namespace GenericRepository.Infrastructure.Ioc
       services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
       services.AddTransient(typeof(IQueryGenericRepository<>), typeof(QueryGenericRepository<>));
       services.Decorate(typeof(IQueryGenericRepository<>), typeof(CacheRepository<>));
+      services.AddHostedService<OutboxProcessorJob>();
     }
   }
 }

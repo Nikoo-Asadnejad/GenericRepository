@@ -1,18 +1,26 @@
+using GenericRepository.Application.Interfaces.GenericRepository.Command;
 using GenericRepository.Application.Interfaces.UnitOfWork;
+using GenericRepository.Domain.Entities;
+using GenericRepository.Infrastructure.Context;
+using GenericRepository.Infrastructure.Repository.GenericRepository.Command;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Infrastructure.Repository.UnitOfWork;
 
-public class UnitOfWork<TContext> :  IUnitOfWork<TContext> where TContext : DbContext
+public class UnitOfWork<TContext> :  IUnitOfWork<TContext> where TContext : CommandContext
 {
     private readonly TContext _context;
     public UnitOfWork(TContext context)
     {
         _context = context;
     }
-    
+
+    private IRepository<OutBoxMessage> _outboxMessages;
+    public IRepository<OutBoxMessage> OutboxMessages => 
+        _outboxMessages ??= new Repository<OutBoxMessage>(_context);
+
     public async Task<int> SaveAsync()
     {
         return await _context.SaveChangesAsync();
