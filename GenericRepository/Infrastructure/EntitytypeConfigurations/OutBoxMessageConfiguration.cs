@@ -28,5 +28,10 @@ public class OutBoxMessageConfiguration : IEntityTypeConfiguration<OutBoxMessage
         builder.Property(b => b.ProcessedOnUtc)
             .HasColumnType("datetime2")
             .HasPrecision(3);
+
+        builder.OwnsOne(b => b.EventType, e =>
+        {
+            e.WithOwner();
+        });
     }
 }

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace GenericRepository.Domain.Entities;
 
-public class ChangeHistoryEntity : BaseEntity
+public class ChangeHistoryEntity : Entity
 {
     public string OldValue { get; private set; }
     
@@ -13,7 +13,7 @@ public class ChangeHistoryEntity : BaseEntity
     
     public string RelatedEntityType { get; private set; }
 
-    public void LogHistory(BaseEntity oldEntity , BaseEntity newEntity)
+    public void LogHistory(Entity oldEntity , Entity newEntity)
     {
         OldValue = JsonSerializer.Serialize(oldEntity);
         NewValue = JsonSerializer.Serialize(oldEntity);

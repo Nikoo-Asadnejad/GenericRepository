@@ -31,7 +31,7 @@ public sealed class PublishDomainEventsInterceptor : SaveChangesInterceptor
     {
         var domainEvents = context
             .ChangeTracker
-            .Entries<BaseEntity>()
+            .Entries<Entity>()
             .Select(entry => entry.Entity)
             .SelectMany(entity =>
             {

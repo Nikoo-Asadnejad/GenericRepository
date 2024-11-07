@@ -6,7 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace GenericRepository.Infrastructure.Repository.GenericRepository.Query;
 
-public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : BaseEntity
+public sealed class CacheRepository<T> : IQueryGenericRepository<T> where T : Entity
 {
     private readonly IMemoryCache _memoryCache;
     private readonly IQueryGenericRepository<T> _repository;

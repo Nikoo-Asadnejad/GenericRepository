@@ -2,7 +2,7 @@ using GenericRepository.Domain;
 
 namespace GenericRepository.Tests.MoqData;
 
-public class SampleEntity : BaseEntity
+public class SampleEntity : Entity
 {
     public string Title { get; set; }
     public  string Description { get; set; }

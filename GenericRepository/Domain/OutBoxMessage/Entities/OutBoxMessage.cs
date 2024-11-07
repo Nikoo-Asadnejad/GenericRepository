@@ -1,9 +1,10 @@
 using System.Text.Json;
 using GenericRepository.Domain.Enums;
+using GenericRepository.Domain.ValueObjects;
 
 namespace GenericRepository.Domain.Entities;
 
-public class OutBoxMessage : BaseEntity
+public class OutBoxMessage : Entity
 {
     private OutBoxMessage(string type, string content,
         EventTypeEnum eventType = EventTypeEnum.Internal)
@@ -11,7 +12,7 @@ public class OutBoxMessage : BaseEntity
         EntityType = type;
         Content = content;
         OccurredOnUtc = DateTime.UtcNow;
-        EventType = eventType;
+        EventType = new OutBoxMessageEventType(eventType);
     }
     
     public OutBoxMessage CreateByDomainEvent(IDomainEvent domainEvent) 
@@ -25,7 +26,7 @@ public class OutBoxMessage : BaseEntity
     public DateTime OccurredOnUtc { get; init; }
     public DateTime? ProcessedOnUtc { get; private set; }
     public string? Error { get; private set; }
-    public EventTypeEnum EventType { get; init; }
+    public OutBoxMessageEventType EventType { get; init; }
     public void Process(string? error = null)
     {
         ProcessedOnUtc = DateTime.UtcNow;
