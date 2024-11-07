@@ -17,9 +17,10 @@ public class CommandContext : DbContext
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
+    
     private static void TrackChanges(object sender, EntityEntryEventArgs e)
     {
-        if (e.Entry.Entity is BaseEntity model)
+        if (e.Entry.Entity is Entity model)
         {
             var result = e.Entry.State switch
             {

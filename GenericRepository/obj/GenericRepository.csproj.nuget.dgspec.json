@@ -51,6 +51,14 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.3.1-develop.2106, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.3.1-develop.2106, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.2.0, )"
@@ -62,6 +70,10 @@
             "Microsoft.EntityFrameworkCore.Abstractions": {
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             },
             "Scrutor": {
               "target": "Package",

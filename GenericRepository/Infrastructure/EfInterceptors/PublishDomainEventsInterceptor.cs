@@ -8,7 +8,6 @@ namespace GenericRepository.Infrastructure.EfInterceptors;
 public sealed class PublishDomainEventsInterceptor : SaveChangesInterceptor
 {
     private readonly IPublisher _publisher;
-
     public PublishDomainEventsInterceptor(IPublisher publisher)
     {
         _publisher = publisher;
@@ -31,7 +30,7 @@ public sealed class PublishDomainEventsInterceptor : SaveChangesInterceptor
     {
         var domainEvents = context
             .ChangeTracker
-            .Entries<BaseEntity>()
+            .Entries<Entity>()
             .Select(entry => entry.Entity)
             .SelectMany(entity =>
             {

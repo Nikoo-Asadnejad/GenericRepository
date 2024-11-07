@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Query;
 
 namespace GenericRepository.Application.Interfaces.GenericRepository.Command;
 
-public partial interface IRepository<T> where T : BaseEntity
+public partial interface IRepository<T> where T : Entity
 {
 
     Task AddAsync(T model);

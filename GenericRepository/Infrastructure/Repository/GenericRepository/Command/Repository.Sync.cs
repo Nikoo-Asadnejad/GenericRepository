@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace GenericRepository.Infrastructure.Repository.GenericRepository.Command;
 
-public sealed partial class Repository<T> where T : BaseEntity
+public sealed partial class Repository<T> where T : Entity
 {
     public IDbContextTransaction BeginTransaction()
     {

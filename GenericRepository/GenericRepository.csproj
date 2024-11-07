@@ -9,9 +9,12 @@
   <ItemGroup>
     <PackageReference Include="EFCore.BulkExtensions" Version="8.1.1" />
     <PackageReference Include="EntityFramework.BulkExtensions" Version="1.0.0" />
+    <PackageReference Include="MassTransit" Version="8.3.1-develop.2106" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.1-develop.2106" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.1" />
     <PackageReference Include="Scrutor" Version="4.2.0" />
   </ItemGroup>
 

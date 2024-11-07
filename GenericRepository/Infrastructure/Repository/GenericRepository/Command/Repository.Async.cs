@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Query;
 
 namespace GenericRepository.Infrastructure.Repository.GenericRepository.Command;
 
-public sealed partial class Repository<T> : IRepository<T> where T : BaseEntity
+public sealed partial class Repository<T> : IRepository<T> where T : Entity
 {
 
   private readonly CommandContext _context;

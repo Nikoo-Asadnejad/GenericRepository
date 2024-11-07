@@ -1,3 +1,5 @@
+using GenericRepository.Application.Interfaces.GenericRepository.Command;
+using GenericRepository.Domain.Entities;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -6,6 +8,7 @@ namespace GenericRepository.Application.Interfaces.UnitOfWork;
 
 public interface IUnitOfWork<TContext> where TContext : DbContext
 { 
+    IRepository<OutBoxMessage> OutboxMessages { get; }
     Task<int> SaveAsync();
     int Save();
     Task RollbackTransactionAsync();
