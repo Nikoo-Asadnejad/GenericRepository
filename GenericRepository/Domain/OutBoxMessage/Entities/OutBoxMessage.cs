@@ -15,7 +15,7 @@ public class OutBoxMessage : Entity
         EventType = new OutBoxMessageEventType(eventType);
     }
     
-    public OutBoxMessage CreateByDomainEvent(IDomainEvent domainEvent) 
+    public static OutBoxMessage CreateByDomainEvent(IDomainEvent domainEvent) 
     {
        return new OutBoxMessage(domainEvent.GetType().Name, JsonSerializer.Serialize(domainEvent));
     }

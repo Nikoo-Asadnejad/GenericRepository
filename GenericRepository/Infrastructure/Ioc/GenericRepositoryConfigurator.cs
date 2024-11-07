@@ -21,6 +21,7 @@ namespace GenericRepository.Infrastructure.Ioc
       services.AddScoped<DbContext, CommandContext>();
       services.AddScoped<DbContext, QueryContext>();
       services.AddSingleton<PublishDomainEventsInterceptor>();
+      services.AddSingleton<AddOutboxMessageInterceptor>();
       services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
       services.AddTransient(typeof(IQueryGenericRepository<>), typeof(QueryGenericRepository<>));
       services.Decorate(typeof(IQueryGenericRepository<>), typeof(CacheRepository<>));

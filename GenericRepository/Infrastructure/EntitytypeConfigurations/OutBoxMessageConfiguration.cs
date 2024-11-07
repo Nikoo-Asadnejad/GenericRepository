@@ -33,5 +33,7 @@ public class OutBoxMessageConfiguration : IEntityTypeConfiguration<OutBoxMessage
         {
             e.WithOwner();
         });
+
+        builder.Ignore(b => b.IsProcessed);
     }
 }

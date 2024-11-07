@@ -8,7 +8,6 @@ namespace GenericRepository.Infrastructure.EfInterceptors;
 public sealed class PublishDomainEventsInterceptor : SaveChangesInterceptor
 {
     private readonly IPublisher _publisher;
-
     public PublishDomainEventsInterceptor(IPublisher publisher)
     {
         _publisher = publisher;
