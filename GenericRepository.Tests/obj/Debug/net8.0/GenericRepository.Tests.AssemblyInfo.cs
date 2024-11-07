@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenericRepository.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3cc96f382c7be1a9675e69ec8c699670228b76ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+606efc5e2ab09a234f46c22dab96e198890c2f32")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenericRepository.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenericRepository.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

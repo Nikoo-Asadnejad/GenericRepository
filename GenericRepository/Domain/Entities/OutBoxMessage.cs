@@ -4,17 +4,28 @@ namespace GenericRepository.Domain.Entities;
 
 public class OutBoxMessage : BaseEntity
 {
-    public OutBoxMessage(string type , string content)
+    private OutBoxMessage(string type , string content)
     {
         Type = type;
         Content = content;
+        OccurredOnUtc = DateTime.UtcNow;
     }
-    public OutBoxMessage(IDomainEvent domainEvent)
+    
+    public OutBoxMessage CreateByDomainEvent(IDomainEvent domainEvent) 
     {
-        Type = domainEvent.GetType().Name;
-        Content = JsonSerializer.Serialize(domainEvent);
+       return new OutBoxMessage(domainEvent.GetType().Name, JsonSerializer.Serialize(domainEvent));
     }
 
-    public string Type { get; private set; }
-    public string Content { get; private set; }
+    public int Id { get; init; }
+    public string Type { get; init; }
+    public string Content { get; init; }
+    public DateTime OccurredOnUtc { get; init; }
+    public DateTime? ProcessedOnUtc { get; private set; }
+    public string? Error { get; private set; }
+
+    public void Process(string? error = null)
+    {
+        ProcessedOnUtc = DateTime.UtcNow;
+        Error = error;
+    }
 }
