@@ -8,6 +8,7 @@ This class library implements the Generic Repository Pattern for SQL Server data
 - Cache Repository with Decorator Pattern: Enhances the query repository with caching to improve performance and reduce database load.
 - Domain Event Handling: Facilitates decoupled communication and business logic execution based on domain events.
 - Audit Logging: Provides comprehensive logging of repository operations for traceability and accountability.
+- Outbox Pattern for Reliable Event Processing: Ensures reliable communication and eventual consistency by storing outgoing messages in an “outbox” table, allowing them to be processed in a transactional way to avoid message loss due to failures.
 
 ## Components :
 
@@ -20,6 +21,7 @@ This class library implements the Generic Repository Pattern for SQL Server data
 - Support for Multiple DbContext: Enables the handling of multiple database contexts, allowing flexibility and separation of concerns for different data models.
 - Raw SQL Execution: Allows execution of raw SQL commands for advanced query scenarios and performance optimization.
 - SQL Transactions: Provides support for executing operations within transactions, ensuring data consistency and integrity during batch operations.
+- Outbox Processor: Manages and processes events stored in the outbox, ensuring reliable delivery of events to external systems even in cases of system failure.
 
 ## Configuration:
 Pass `IServiceCollection` to following method to add services to your DI:
